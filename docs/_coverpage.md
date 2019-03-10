@@ -3,6 +3,6 @@
 
 > Learning from your users through metrics & logging
 
-- Ivo de Bruijn & Joost van Wollingen
+- Ivo de Bruijn &amp; Joost van Wollingen
 
 [Get Started](/Introduction)
