@@ -1,6 +1,31 @@
 # Your first dashboard
 
-- Endpoint GET /basket
-- Create a dashboard to show the amount of times a basket has been retrieved
-- Extend the dashboard to show the min, average and max duration of the basket call
-- Extend the dashboard to show the amount of failed calls (http 500) (fouten injecteren random?)
+Let's start by creating a dashboard on which we can see the details of the GET /basket endpoint. 
+
+In order to create a panel we will first need to create a dashboard in [Grafana](url). On the Grafana homepage click the + icon on the left hand side. If you don't see the + icon straight away you may have to click the Granafa logo in the topleft, that should unhide the toolbar. 
+
+![Click the plus to create a new dashboard](images/create_new_dashboard.png ':size=250')
+## Add a query
+After clicking the + icon you should be on a page called New Dashboard page with a New Panel open. Click `Add Query`. Each panel can consist of multiple queries which will be shown in the visualization type you've chosen.
+
+Type `get_` in the first query field A. The autocomplete function will show you all the available metrics that start with `get_`. Choose `get_basket_v1_seconds_count` for now, this is the metric that shows us the number of requests to the GET Basket endpoint per second. 
+## Generate some metrics
+For now the shown graph is probably empty, we don't have any metrics yet. Change the time range in the top right hand corner to show the metrics for the last 5 minutes. Now use the Postman request 'GET Basket' to generate some calls. If you refresh the dashboard page with the refresh icon on the top right hand corner you should see the graph being drawn.
+## Not quite right
+As time passes you'll notice that the graph stays at the same level, even though no new requests are coming in. This is because of [how counters work in Promotheus](https://www.robustperception.io/how-does-a-prometheus-counter-work). In order to see the real amount of requests per seconds we will need to adjust the query in Grafana to account for this. Experiment with the `rate` and `increase` functions. What are the differences between the two? What happens if you change the time period?
+
+<details><summary>Need help with the rate and increase functions?</summary>
+<p>
+
+```
+Click the `Add query` button on the right, it will add an additional input field `B`
+Query A: rate(get_basket_v1_seconds_count[1m])
+Query B: increase(get_basket_v1_seconds_count[1m])
+Enter a descriptive name in the respective legend fields. 
+Clicking on the small colored line in front of the series, just below the graph, allow you to choose a color for the series.
+```
+<img src="images/rate_increase.png" width=500px><br/>
+</p>
+</details>
+
+Experiment a little with the available styling options for your graph and move on to the second exercise if you are happy.
