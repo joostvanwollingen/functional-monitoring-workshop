@@ -6,19 +6,21 @@ In order to create a panel we will first need to create a dashboard in [Grafana]
 
 ![Click the plus to create a new dashboard](images/create_new_dashboard.png ':size=250')
 ## Add a query
-After clicking the + icon you should be on a page called New Dashboard page with a New Panel open. Click `Add Query`. Each panel can consist of multiple queries which will be shown in the visualization type you've chosen.
+On the new dashboard click `Add Query`. Each panel can consist of multiple queries which will be shown in the visualization type you've chosen.
 
-Type `get_` in the first query field A. The autocomplete function will show you all the available metrics that start with `get_`. Choose `get_basket_v1_seconds_count` for now, this is the metric that shows us the number of requests to the GET Basket endpoint per second. 
+Type `get_` in the first query field A. The autocomplete function will show you all the available metrics that start with whatever your input is. Choose `get_basket_v1_seconds_count` for now, this is the metric that shows us the number of requests to the GET Basket endpoint per second.
 ## Generate some metrics
-For now the shown graph is probably empty, we don't have any metrics yet. Change the time range in the top right hand corner to show the metrics for the last 5 minutes. Now use the Postman request 'GET Basket' to generate some calls. If you refresh the dashboard page with the refresh icon on the top right hand corner you should see the graph being drawn.
-## Not quite right
-As time passes you'll notice that the graph stays at the same level, even though no new requests are coming in. This is because of [how counters work in Promotheus](https://www.robustperception.io/how-does-a-prometheus-counter-work). In order to see the real amount of requests per seconds we will need to adjust the query in Grafana to account for this. Experiment with the `rate` and `increase` functions. What are the differences between the two? What happens if you change the time period?
+The current graph is probably empty, because we don't have any metrics yet. Change the time range in the top right hand corner to show the metrics for the last 5 minutes. Now use the Postman request 'GET Basket' to generate some data points. Refresh the dashboard page with the icon in the top right hand corner. This time you should see the graph being drawn.
+## Not quite what you expected?
+As time passes you'll notice that the graph stays at the same level, even though no new requests are coming in. This is because of [how counters work in Promotheus](https://www.robustperception.io/how-does-a-prometheus-counter-work). In order to see the real amount of requests per seconds we will need to adjust the query in Grafana to account for this. 
+
+Experiment with the [`rate`](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) and [`increase`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) functions. What are the differences between the two? What happens if you change the time period?
 
 <details><summary>Need help with the rate and increase functions?</summary>
 <p>
 
 ```
-Click the `Add query` button on the right, it will add an additional input field `B`
+While editing the panel click the `Add query` button on the right, it will add an additional input field `B`
 Query A: rate(get_basket_v1_seconds_count[1m])
 Query B: increase(get_basket_v1_seconds_count[1m])
 Enter a descriptive name in the respective legend fields. 

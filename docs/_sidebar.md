@@ -6,6 +6,7 @@
 * [2. Min, Max, Average](15-MinMaxAverage.md)
 * [3. Split metrics by label](20-OrderPayments.md)
 * [4. Drilldown](30-DatabaseConnections.md)
-* [5. Stress](40-WRK.md)
+* [5. Using variables](40-Variables.md)
 * [6. Asynchronous communication](50-WorkingWithQueues.md)
 * [7. Alerts](60-SetupAlerts.md)
+* [8. Tips & Tricks](70-TipsTricks.md)
