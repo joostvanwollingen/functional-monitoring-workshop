@@ -1,4 +1,4 @@
-Build not done, don't know how, get customer by customer id
+Build done, get customer by customer id has a random long (50%) and short delay (50%) to a 3rd party service to retrieve enriched data. Metric: get.3rdPartyEnrichCustomerService.v3
 
 # Database problems?
 

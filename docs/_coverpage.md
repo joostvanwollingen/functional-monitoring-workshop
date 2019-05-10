@@ -5,4 +5,4 @@
 
 - Ivo de Bruijn &amp; Joost van Wollingen
 
-[Get Started](/00-Introduction)
+[Get Started](00-GetStarted.md)
