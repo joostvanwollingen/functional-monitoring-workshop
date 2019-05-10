@@ -1,8 +1,9 @@
-- Endpoint GET /basket
-- Create a dashboard to show the amount of times a basket has been retrieved
+- Build done, throws a random http 500 about once every 25 requests and random delays between 10 and 1500 milliseconds on every request.
+
+- Endpoint GET /customers
+- Create a dashboard to show the amount of times customers are retrieved
 - Extend the dashboard to show the min, average and max duration of the basket call
-- Extend the dashboard to show the amount of failed calls (http 500) (fouten injecteren random?)
-- Reboot, see reboot line?
+- Extend the dashboard to show the amount of failed calls
 
 # Min, Max, Average
 
