@@ -16,13 +16,15 @@ As time passes you'll notice that the graph stays at the same level, even though
 
 Experiment with the [`rate`](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) and [`increase`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) functions. What are the differences between the two? What happens if you change the time period?
 
+!> $__range hier uitleggen!
+
 <details><summary>Need help with the rate and increase functions?</summary>
 <p>
 
 ```
 While editing the panel click the `Add query` button on the right, it will add an additional input field `B`
-Query A: rate(get_customers_v1_seconds_count[1m])
-Query B: increase(get_customers_v1_seconds_count[1m])
+Query A: rate(get_customers_v1_seconds_count[$__range])
+Query B: increase(get_customers_v1_seconds_count[$__range])
 Enter a descriptive name in the respective legend fields. 
 Clicking on the small colored line in front of the series, just below the graph, allow you to choose a color for the series.
 ```
