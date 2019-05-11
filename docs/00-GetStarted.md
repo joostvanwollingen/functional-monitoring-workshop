@@ -3,7 +3,7 @@
 These pages serve as documentation for the Functional Monitoring Workshop. You can work through the exercises at your own pace.
 
 ## System under test
-The system under test is a simple backend for a shopping basket, called TRIX. You can find the documentation of the API on: [**insert url**](http://some.url). It has operations to create a new basket, add items to a basket, retrieve payment providers and order the items. We do assume you are familiar with [HTTP REST](https://spring.io/understanding/REST).
+The system under test is a simple backend for a shopping basket, called TRIX. You can find the documentation of the API in [Swagger](http://localhost:8084/swagger-ui.html). It has operations to create a new basket, add items to a basket, retrieve payment providers and order the items. We do assume you are familiar with [HTTP REST](https://spring.io/understanding/REST).
 
 ## Tools
 ### Grafana
