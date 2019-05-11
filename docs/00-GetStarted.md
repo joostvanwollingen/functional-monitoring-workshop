@@ -13,7 +13,19 @@ In the first exercises we will set up a basic dashboard in [**Grafana**](url_to_
 The metrics visualized by Grafana are coming from [Prometheus](https://prometheus.io/). Prometheus gathers those metrics from the services and applications to be monitored. The Prometheus [documentation](https://prometheus.io/docs/introduction/overview/) describes the [PromQL query language](https://prometheus.io/docs/prometheus/latest/querying/basics/) which is what we will be using during this workshop.
 
 ### Postman
-To do requests to the system under test [Postman](https://www.getpostman.com/downloads/) is a nice, visual REST client that is easy to use. Please install Postman and get the [**request collection**](collection_url).
+To do requests to the system under test [Postman](https://www.getpostman.com/downloads/) is a nice, visual REST client that is easy to use. Please install Postman and get the [**request collection**](https://www.getpostman.com/collections/53dd09921ee3f3b290f0).
+
+### WRK
+[WRK](https://github.com/wg/wrk) is a HTTP benchmarking tool, which can be used to fire thousands of requests in a short amount of time at the SUT. That way we can generate more realistic metrics to create dashboards with.
+
+In order to use WRK you need to either install it [locally](https://github.com/wg/wrk/wiki/Installing-wrk-on-Windows-10) or [use Docker](https://github.com/William-Yeh/docker-wrk).
+
+Running WRK to generate requests is simple:
+```wrk -t1 -d10 http://{hostname}:9999/customers```
+
+With Docker it would look like this:
+```docker run --rm williamyeh/wrk -t1 -d10 http://{hostname}:9999/customers```
+
 
 # Ready?
 Once you are ready move on to the first exercise in the sidebar on the left.

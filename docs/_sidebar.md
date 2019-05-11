@@ -1,6 +1,5 @@
 <!-- docs/_sidebar.md -->
 
-* [Home](/)
 * [Introduction](00-GetStarted.md)
 * [1. Your first dashboard](10-FirstDashboard.md)
 * [2. Min, Max, Average](15-MinMaxAverage.md)

@@ -1,7 +1,7 @@
 <!-- _coverpage.md -->
 # Functional Monitoring
 
-> Learning from your users through metrics & logging
+> Learning from your users through metrics
 
 - Ivo de Bruijn &amp; Joost van Wollingen
 

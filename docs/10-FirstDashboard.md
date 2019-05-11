@@ -1,6 +1,6 @@
 # Your first dashboard
 
-Let's start by creating a dashboard on which we can see the details of the GET /basket endpoint. 
+Let's start by creating a dashboard on which we can see the details of the GET /customers endpoint. 
 
 In order to create a panel we will first need to create a dashboard in [Grafana](url). On the Grafana homepage click the + icon on the left hand side. If you don't see the + icon straight away you may have to click the Granafa logo in the topleft, that should unhide the toolbar. 
 
@@ -8,9 +8,9 @@ In order to create a panel we will first need to create a dashboard in [Grafana]
 ## Add a query
 On the new dashboard click `Add Query`. Each panel can consist of multiple queries which will be shown in the visualization type you've chosen.
 
-Type `get_` in the first query field A. The autocomplete function will show you all the available metrics that start with whatever your input is. Choose `get_basket_v1_seconds_count` for now, this is the metric that shows us the number of requests to the GET Basket endpoint per second.
+Type `get_` in the first query field A. The autocomplete function will show you all the available metrics that start with whatever your input is. Choose `get_customers_v1_seconds_count` for now, this is the metric that shows us the number of requests to the GET Customers endpoint per second.
 ## Generate some metrics
-The current graph is probably empty, because we don't have any metrics yet. Change the time range in the top right hand corner to show the metrics for the last 5 minutes. Now use the Postman request 'GET Basket' to generate some data points. Refresh the dashboard page with the icon in the top right hand corner. This time you should see the graph being drawn.
+The current graph is probably empty, because we don't have any metrics yet. Change the time range in the top right hand corner to show the metrics for the last 5 minutes. Now use the Postman request 'GET Customers' to generate some data points. Refresh the dashboard page with the icon in the top right hand corner. This time you should see the graph being drawn.
 ## Not quite what you expected?
 As time passes you'll notice that the graph stays at the same level, even though no new requests are coming in. This is because of [how counters work in Promotheus](https://www.robustperception.io/how-does-a-prometheus-counter-work). In order to see the real amount of requests per seconds we will need to adjust the query in Grafana to account for this. 
 
@@ -21,8 +21,8 @@ Experiment with the [`rate`](https://prometheus.io/docs/prometheus/latest/queryi
 
 ```
 While editing the panel click the `Add query` button on the right, it will add an additional input field `B`
-Query A: rate(get_basket_v1_seconds_count[1m])
-Query B: increase(get_basket_v1_seconds_count[1m])
+Query A: rate(get_customers_v1_seconds_count[1m])
+Query B: increase(get_customers_v1_seconds_count[1m])
 Enter a descriptive name in the respective legend fields. 
 Clicking on the small colored line in front of the series, just below the graph, allow you to choose a color for the series.
 ```
