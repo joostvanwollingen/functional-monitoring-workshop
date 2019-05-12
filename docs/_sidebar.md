@@ -4,7 +4,7 @@
 * [1. Your first dashboard](10-FirstDashboard.md)
 * [2. Min, Max, Average](15-MinMaxAverage.md)
 * [3. Visualizing payment types](20-PaymentMix.md)
-* [4. Drilldown](30-Drilldown.md)
+* [4. Slow calls](30-SlowCalls.md)
 * [5. Using variables](40-Variables.md)
 * [6. Asynchronous communication](AsyncCommunication.md)
 * [7. Alerts](60-Alerts.md)
