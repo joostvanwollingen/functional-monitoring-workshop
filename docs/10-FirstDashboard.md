@@ -2,7 +2,9 @@
 
 Let's start by creating a dashboard on which we can see the details of the GET /customers endpoint. 
 
-In order to create a panel we will first need to create a dashboard in [Grafana](url). On the Grafana homepage click the + icon on the left hand side. If you don't see the + icon straight away you may have to click the Granafa logo in the topleft, that should unhide the toolbar. 
+In order to create a panel we will first need to create a dashboard in [Grafana](https://idb-grafana.cfapps.io). On the Grafana homepage click the + icon on the left hand side. If you don't see the + icon straight away you may have to click the Grafana logo in the topleft, that should unhide the toolbar. 
+
+Note: please keep in mind all teams work on the same Grafana application.
 
 ![Click the plus to create a new dashboard](images/create_new_dashboard.png ':size=250')
 ## Add a query

@@ -18,14 +18,27 @@ To do requests to the system under test [Postman](https://www.getpostman.com/dow
 ### WRK
 [WRK](https://github.com/wg/wrk) is a HTTP benchmarking tool, which can be used to fire thousands of requests in a short amount of time at the SUT. That way we can generate more realistic metrics to create dashboards with.
 
-In order to use WRK you need to either install it [locally](https://github.com/wg/wrk/wiki/Installing-wrk-on-Windows-10) or [use Docker](https://github.com/William-Yeh/docker-wrk).
+#### Generate requests with WRK
 
-Running WRK to generate requests is simple:
+In order to use WRK you need to either install it [locally](https://github.com/wg/wrk/wiki/Installing-wrk-on-Windows-10) or use [Docker](https://github.com/William-Yeh/docker-wrk). 
+
+Before you execute the following commands change the URL for your version of Trix.
+
+Example URL: ```https://trix-pro.cfapps.io``` 
+
+Locally:
+```wrk -t1 -d10 https://trix-pro.cfapps.io/customers```
+
+Docker:
+```docker run --rm williamyeh/wrk -t1 -d10 https://trix-pro.cfapps.io/customers```
+
+In case you are developing and run Trix locally.
+
+Locally:
 ```wrk -t1 -d10 http://{hostname}:9999/customers```
 
-With Docker it would look like this:
+Docker:
 ```docker run --rm williamyeh/wrk -t1 -d10 http://{hostname}:9999/customers```
-
 
 # Ready?
 Once you are ready move on to the first exercise in the sidebar on the left.
