@@ -2,21 +2,23 @@
 
 Let's start by creating a dashboard on which we can see the details of the GET /customers endpoint. 
 
-### Start with downloading a template dashboard
-Because we all work on one shard instance of Grafana it is important to start with a template dashboard where you can select the instance of Trix you are testing on. 
+## Start with downloading a template dashboard
+Because we all work on one shared instance of Grafana it is important to start with a template dashboard where you can select the instance of Trix you are testing on. 
 
-You can find it [here](https://github.com/joostvanwollingen/functional-monitoring-workshop/blob/master/template_dashboard/template_dashboard.json). Copy the JSON file. Import this dashboard in [Grafana](https://idb-grafana-616.cfapps.io/) by clicking on the + icon on the left hand side and choose import. Past the JSON choose a unique name like "Team 1 dashboard" and save it. 
+Go to the [template dashboard](https://idb-grafana-616.cfapps.io/d/AD4iA3mWz/template-dashboard?editview=settings&orgId=1). On the left hand side click `Save as` and give your dashboard a unique name. 
 
-Now you can do all exercises on this dashboard. Keep in mind there is no user authentication on deleting or altering dashboards from other teams during this workshop.
+What the template dashboard does is create a variable for you called `$instance`. Its value is determined by the dropdown at the top of the dashboard. This way we can easily add a filter to each query, by adding a [label](https://prometheus.io/docs/prometheus/latest/querying/basics/#time-series-selectors) filter. How to use those is explained below.
 
-Note: If you want to start from scratch create a dashboard by adding a new panel on the Grafana homepage. Click on the + icon on the left hand side. If you don't see the + icon straight away you may have to click the Grafana logo in the topleft, that should unhide the toolbar. But you would be have to add the instance variable yourself.
+You can do all exercises on this copy of the template dashboard. Keep in mind there is no user authentication on deleting or altering dashboards from other teams during this workshop.
 
-![Click the plus to create a new dashboard](images/create_new_dashboard.png ':size=250')
+## Add a panel
+On the new dashboard click the `Add Panel` button. Then click `Add Query`. Each panel can consist of multiple queries which will be shown in the visualization type you've chosen.
 
-## Add a query
-On the new dashboard click `Add Query`. This will add a panel for you. Each panel can consist of multiple queries which will be shown in the visualization type you've chosen.
+Type `get_` in the first query field `A`. The autocomplete function will show you all the available metrics that start with whatever your input is. Choose `get_customers_v1_seconds_count` for now, this is the metric that shows us the number of requests to the GET Customers endpoint per second.
 
-Type `get_` in the first query field A. The autocomplete function will show you all the available metrics that start with whatever your input is. Choose `get_customers_v1_seconds_count` for now, this is the metric that shows us the number of requests to the GET Customers endpoint per second.
+## Filtering for our own instance
+Depending on how many instances have reported metrics you may get a lot of different times series for this query. It is now retrieving all requests for all instances of the service on the GET customers endpoint. Let's limit this to only the instance that you or your team are working on by adding a [label](https://prometheus.io/docs/prometheus/latest/querying/basics/#time-series-selectors) filter. The labelname to use is `instance` and the value to filter on is `trix-1-dev.cfapps.io:80 (host:ip of your instance)`. If you are using the default dashboard a template variable is available that you can use: `$instance`. The final query would be: `get_customers_v1_seconds_count{instance="$instance"}`.
+
 ## Generate some metrics
 The current graph is probably empty, because we don't have any metrics yet. Change the time range in the top right hand corner to show the metrics for the last 5 minutes. Now use the Postman request 'GET Customers' to generate some data points. Refresh the dashboard page with the icon in the top right hand corner. This time you should see the graph being drawn.
 ## Not quite what you expected?
@@ -31,8 +33,8 @@ Experiment with the [`irate`](https://prometheus.io/docs/prometheus/latest/query
 
 ```
 While editing the panel click the `Add query` button on the right, it will add an additional input field `B`
-Query A: irate(get_customers_v1_seconds_count{status="200"}[1m])
-Query B: increase(get_customers_v1_seconds_count{status="200"}[1m])
+Query A: irate(get_customers_v1_seconds_count{status="200", instance="$instance"}[1m])
+Query B: increase(get_customers_v1_seconds_count{status="200", instance="$instance"}[1m])
 Enter a descriptive name in the respective legend fields. 
 Clicking on the small colored line in front of the series, just below the graph, allow you to choose a color for the series.
 ```
@@ -42,7 +44,7 @@ Clicking on the small colored line in front of the series, just below the graph,
 
 ## Labels
 
-You might see two series drawn per query, this is because there are [labels](https://prometheus.io/docs/prometheus/latest/querying/basics/#time-series-selectors) in the time series. To only focus on the successful requests for example, you could add `{status="200"}`.
+You might see two series drawn per query, this is because there are [labels](https://prometheus.io/docs/prometheus/latest/querying/basics/#time-series-selectors) in the time series. To only focus on the successful requests for example, you could add `{status="200"}`. You can combine labels with a `,`, i.e. `{status="200", instance="$instance"}`.
 
 ## Before moving on
 
