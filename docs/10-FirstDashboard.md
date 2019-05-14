@@ -7,6 +7,8 @@ Because we all work on one shared instance of Grafana it is important to start w
 
 Find the template dashboard in [Grafana](https://idb-grafana-616.cfapps.io/). Go to the settings of the template dashboard. On the left hand side click `Save as` and give your dashboard a unique name. 
 
+![Settings](images/dashboard.png ':size=400')
+
 What the template dashboard does is create a variable for you called `$instance`. Its value is determined by the dropdown at the top of the dashboard. This way we can easily add a filter to each query, by adding a [label](https://prometheus.io/docs/prometheus/latest/querying/basics/#time-series-selectors) filter. How to use those is explained below.
 
 You can do all exercises on this copy of the template dashboard. Keep in mind there is no user authentication on deleting or altering dashboards from other teams during this workshop.
