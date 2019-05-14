@@ -2,11 +2,17 @@
 
 Let's start by creating a dashboard on which we can see the details of the GET /customers endpoint. 
 
-In order to create a panel we will first need to create a dashboard in [Grafana](https://idb-grafana.cfapps.io). On the Grafana homepage click the + icon on the left hand side. If you don't see the + icon straight away you may have to click the Grafana logo in the topleft, that should unhide the toolbar. 
+### Start with downloading a template dashboard
+Because we all work on one shard instance of Grafana it is important to start with a template dashboard where you can select the instance of Trix you are testing on. 
 
-Note: please keep in mind all teams work on the same Grafana application.
+You can find it [here](https://github.com/joostvanwollingen/functional-monitoring-workshop/blob/master/template_dashboard/template_dashboard.json). Copy the JSON file. Import this dashboard in [Grafana](https://idb-grafana-616.cfapps.io/) by clicking on the + icon on the left hand side and choose import. Past the JSON choose a unique name like "Team 1 dashboard" and save it. 
+
+Now you can do all exercises on this dashboard. Keep in mind there is no user authentication on deleting or altering dashboards from other teams during this workshop.
+
+Note: If you want to start from scratch create a dashboard by adding a new panel on the Grafana homepage. Click on the + icon on the left hand side. If you don't see the + icon straight away you may have to click the Grafana logo in the topleft, that should unhide the toolbar. But you would be have to add the instance variable yourself.
 
 ![Click the plus to create a new dashboard](images/create_new_dashboard.png ':size=250')
+
 ## Add a query
 On the new dashboard click `Add Query`. This will add a panel for you. Each panel can consist of multiple queries which will be shown in the visualization type you've chosen.
 
