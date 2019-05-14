@@ -1,5 +1,3 @@
-Todo: Just Grafana alerts at the moment, we can explain you can hook this up to Slack or other tools.
-
 # Setup Alerts
 
 Following on the previous exercise we want to generate an [alert](https://grafana.com/docs/alerting/rules/) and send a notification to a Slack channel when the 3rd party service becomes slow again.
