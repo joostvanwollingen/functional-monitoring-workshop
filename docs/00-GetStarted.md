@@ -52,8 +52,12 @@ Locally:
 Docker:
 ```docker run --rm williamyeh/wrk -t1 -d10 http://{hostname}:9999/customers```
 
-### Template dashboard
-Because we all work on one shard instance of Grafana it is important to start with a template dashboard where you can select the instance you are testing on. You can find it [here](). Import this dashboard, change the name and save it. Now you can do all exercises on this dashboard. Keep in mind there is no user authentication on deleting or altering dashboards from other teams during this workshop.
+### Start with downloading a template dashboard
+Because we all work on one shard instance of Grafana it is important to start with a template dashboard where you can select the instance you are testing on. 
+
+You can find it [here](https://github.com/joostvanwollingen/functional-monitoring-workshop/tree/master/template_dashboard) then right click on 'template_dashboard.json' and save link as. Import this dashboard, change the name and save it. 
+
+Now you can do all exercises on this dashboard. Keep in mind there is no user authentication on deleting or altering dashboards from other teams during this workshop.
 
 # Ready?
 Once you are ready move on to the first exercise in the sidebar on the left.
