@@ -15,4 +15,9 @@ You have already used the `instance` variable in your dashboard. Based on that v
 
 ## Community dashboards
 
-Grafana also provides dashboards that are made by vendors or community members which you can download from: https://grafana.com/dashboards. A nice one to import and play around with is [`JVM micrometer`](https://grafana.com/dashboards/4701). Take some time to explore the technical metrics of the application.
+Grafana also provides dashboards that are made by vendors or community members which you can download from: https://grafana.com/dashboards. 
+
+Because Trix is an application written in [`Kotlin`](https://kotlinlang.org/docs/reference/) (JVM) and uses [`Micrometer`](https://www.baeldung.com/micrometer) to collect metrics. A nice dashboard to look at is [`JVM micrometer`](https://grafana.com/dashboards/4701) this dashboard is already imported in Grafana) 
+
+
+Take some time to explore the technical metrics of the application.
