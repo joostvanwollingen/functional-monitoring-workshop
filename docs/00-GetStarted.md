@@ -25,7 +25,9 @@ In the exercises we will set up dashboards in [**Grafana**](https://idb-grafana-
 The metrics visualized by Grafana are coming from [Prometheus](https://prometheus.io/). Prometheus gathers those metrics from the services and applications to be monitored. The Prometheus [documentation](https://prometheus.io/docs/introduction/overview/) describes the [PromQL query language](https://prometheus.io/docs/prometheus/latest/querying/basics/) which is what we will be using during this workshop to query the right data for our visualizations.
 
 ### Postman
-To do requests to the system under test [Postman](https://www.getpostman.com/downloads/) is a nice, visual REST client that is easy to use. Please install Postman and get the [**request collection**](https://www.getpostman.com/collections/53dd09921ee3f3b290f0). You may have to setup up an environment variable `hostname` with its value pointing to your Trix url.
+To do requests to the system under test [Postman](https://www.getpostman.com/downloads/) is a nice, visual REST client that is easy to use. Please install Postman and get the [**request collection**](https://www.getpostman.com/collections/53dd09921ee3f3b290f0). You have to [setup up an environment variable](https://developers.onelogin.com/api-docs/1/getting-started/postman-collections) called `hostname` with its value pointing to your Trix url.
+
+![Your Postman Environment](images/postman_environment.png ':size=700')
 
 ### WRK
 [WRK](https://github.com/wg/wrk) is a HTTP benchmarking tool, which can be used to fire thousands of requests in a short amount of time at the SUT. That way we can generate more realistic metrics to create dashboards with.

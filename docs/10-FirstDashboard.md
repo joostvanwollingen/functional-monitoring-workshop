@@ -5,7 +5,7 @@ Let's start by creating a dashboard on which we can see the details of the GET /
 ## Start with downloading a template dashboard
 Because we all work on one shared instance of Grafana it is important to start with a template dashboard where you can select the instance of Trix you are testing on. 
 
-Go to the [template dashboard](https://idb-grafana-616.cfapps.io/d/AD4iA3mWz/template-dashboard?editview=settings&orgId=1). On the left hand side click `Save as` and give your dashboard a unique name. 
+Find the template dashboard in [Grafana](https://idb-grafana-616.cfapps.io/). Go to the settings of the template dashboard. On the left hand side click `Save as` and give your dashboard a unique name. 
 
 What the template dashboard does is create a variable for you called `$instance`. Its value is determined by the dropdown at the top of the dashboard. This way we can easily add a filter to each query, by adding a [label](https://prometheus.io/docs/prometheus/latest/querying/basics/#time-series-selectors) filter. How to use those is explained below.
 
@@ -19,7 +19,9 @@ On the new dashboard click the `Add Panel` button. Then click `Add Query`. Each 
 Type `get_` in the first query field `A`. The autocomplete function will show you all the available metrics that start with whatever your input is. Choose `get_customers_v1_seconds_count` for now, this is the metric that shows us the number of requests to the GET Customers endpoint per second.
 
 ## Filtering for our own instance
-Depending on how many instances have reported metrics you may get a lot of different times series for this query. It is now retrieving all requests for all instances of the service on the GET customers endpoint. Let's limit this to only the instance that you or your team are working on by adding a [label](https://prometheus.io/docs/prometheus/latest/querying/basics/#time-series-selectors) filter. The labelname to use is `instance` and the value to filter on is `trix-1-dev.cfapps.io:80 (host:ip of your instance)`. If you are using the default dashboard a template variable is available that you can use: `$instance`. The final query would be: `get_customers_v1_seconds_count{instance="$instance"}`.
+Depending on how many instances of the Trix service there are you may get a lot of different times series for this query. It is now retrieving all requests for all instances of the service on the GET customers endpoint. Let's limit this to only the instance that you or your team are working on by adding a [label](https://prometheus.io/docs/prometheus/latest/querying/basics/#time-series-selectors) filter. The label name to use in your query is `instance` and the value is determined by the instance dropdown at the top of the dashboard. To refer to that value you can use `$instance`. The final query would be: `get_customers_v1_seconds_count{instance="$instance"}`.
+
+![Make sure to select the right instance](images/dropdown_instance_filter.png ':size=700')
 
 ## Generate some metrics
 The current graph is probably empty, because we don't have any metrics yet. Change the time range in the top right hand corner to show the metrics for the last 5 minutes. Now use the Postman request 'GET Customers' to generate some data points. Refresh the dashboard page with the icon in the top right hand corner. This time you should see the graph being drawn.
