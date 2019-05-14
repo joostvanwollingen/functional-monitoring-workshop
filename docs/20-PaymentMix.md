@@ -21,4 +21,7 @@ The Postman collection contains a request for this endpoint, which will randomly
 
 Create a dashboard that shows the total amount of orders placed, the amount of orders per payment type and uses the $__range function to only show the orders placed in the selected time window.
 
+### Create a graph for the payment mix
+Once you have counters for all the order types, try creating a graph to visualize how the three different payment types are used. A stacked graph with fill works quite nicely for this!
+
 ![Your dashboard should look something like this](images/exercise3.png ':size=700')
