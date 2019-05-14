@@ -3,11 +3,23 @@
 These pages serve as documentation for the Functional Monitoring Workshop. You can work through the exercises at your own pace.
 
 ## System under test
-The system under test is a simple backend service, called TRIX. You can find the documentation of the API in [Swagger](https://trix-pro.cfapps.io/swagger-ui.html#/). It has operations to create a new basket, add items to a basket, retrieve payment providers and order the items. We do assume you are familiar with [HTTP REST](https://spring.io/understanding/REST).
+The system under test is a simple backend service, called TRIX. You can find the documentation of the API in [Swagger](https://trix-pro.cfapps.io/swagger-ui.html#/). It has different operations to create a new customer, add and delete them, but also operations to create orders, add items to an order and retrieve them. A completely fictional API. We do assume you are familiar with [HTTP REST](https://spring.io/understanding/REST).
+
+Every group (or individual) gets a number and does the exercises against a separate instance of the Trix service so it is easier to see your own requests.
+
+Trix example URL per group:
+
+|Group|Trix URL|
+| ------------- |:-------------:|
+|1| https://trix-1-dev.cfapps.io/swagger-ui.html|
+|2| https://trix-2-dev.cfapps.io/swagger-ui.html|
+|3| https://trix-3-dev.cfapps.io/swagger-ui.html|
+|...| ...|
+|10| https://trix-10-dev.cfapps.io/swagger-ui.html|
 
 ## Tools
 ### Grafana
-In the exercises we will set up dashboards in [**Grafana**](https://idb-grafana-616.cfapps.io/) which we can use to monitor the system. See if you can reach the url above, as you will need Grafana for every exercise.
+In the exercises we will set up dashboards in [**Grafana**](https://idb-grafana-616.cfapps.io/) which we can use to monitor the system. See if you can reach the url above, as you will need Grafana for every exercise. If needed login with password and username: admin/admin.
 
 ### Prometheus
 The metrics visualized by Grafana are coming from [Prometheus](https://prometheus.io/). Prometheus gathers those metrics from the services and applications to be monitored. The Prometheus [documentation](https://prometheus.io/docs/introduction/overview/) describes the [PromQL query language](https://prometheus.io/docs/prometheus/latest/querying/basics/) which is what we will be using during this workshop to query the right data for our visualizations.
@@ -39,6 +51,9 @@ Locally:
 
 Docker:
 ```docker run --rm williamyeh/wrk -t1 -d10 http://{hostname}:9999/customers```
+
+### Template dashboard
+Because we all work on one shard instance of Grafana it is important to start with a template dashboard where you can select the instance you are testing on. You can find it [here](). Import this dashboard, change the name and save it. Now you can do all exercises on this dashboard. Keep in mind there is no user authentication on deleting or altering dashboards from other teams during this workshop.
 
 # Ready?
 Once you are ready move on to the first exercise in the sidebar on the left.
