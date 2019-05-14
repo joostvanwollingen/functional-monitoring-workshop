@@ -1,5 +1,9 @@
 # Tips & Tricks
 
+## Already finished?
+Wow! You are fast! If you are done trying and playing with Grafana, take a look at these tips & tricks.
+If you created something cool, please show us and share with the audience!
+
 ## Dashboard
 For a dashboard that is on display 24/7 it is vital to show the most important information first. This should be the key metrics that define the health of the service. Put these on the first row(s) of you dashboard.
 
