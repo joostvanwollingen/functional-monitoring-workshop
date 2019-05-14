@@ -28,23 +28,15 @@ The current graph is probably empty, because we don't have any metrics yet. Chan
 ## Not quite what you expected?
 As time passes you'll notice that the graph stays at the same level, even though no new requests are coming in. This is because of [how counters work in Promotheus](https://www.robustperception.io/how-does-a-prometheus-counter-work). In order to see the real amount of requests per seconds we will need to adjust the query in Grafana to account for this. 
 
-We can use a function to take the data from the time series and convert it into a value that better reflects what was happening at that moment in time. 
+We can use a function to take the data from the time series and convert it into a value that better reflects what was happening at that moment in time. Two functions you can use for that are [`rate`](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) and [`increase`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase). 
 
-Experiment with the [`irate`](https://prometheus.io/docs/prometheus/latest/querying/functions/#irate) and [`increase`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) functions. What are the differences between the two?
+To show the average rate at which requests increased per seconds use:`rate(get_customers_v1_seconds_count{status="200", instance="$instance"}[1m])`
 
-<details><summary>Need help with the irate and increase functions?</summary>
-<p>
+To show the increase in the time series for the last minute user: `increase(get_customers_v1_seconds_count{status="200", instance="$instance"}[1m])`
 
-```
-While editing the panel click the `Add query` button on the right, it will add an additional input field `B`
-Query A: irate(get_customers_v1_seconds_count{status="200", instance="$instance"}[1m])
-Query B: increase(get_customers_v1_seconds_count{status="200", instance="$instance"}[1m])
-Enter a descriptive name in the respective legend fields. 
-Clicking on the small colored line in front of the series, just below the graph, allow you to choose a color for the series.
-```
-<img src="images/rate_increase.png" width=500px><br/>
-</p>
-</details>
+Experiment with the [`rate`](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) and [`increase`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) functions. What are the differences between the two?
+
+<img src="images/rate_increase.png" width=500px>
 
 ## Labels
 
