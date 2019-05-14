@@ -12,6 +12,8 @@ What the template dashboard does is create a variable for you called `$instance`
 You can do all exercises on this copy of the template dashboard. Keep in mind there is no user authentication on deleting or altering dashboards from other teams during this workshop.
 
 ## Add a panel
+![Click the Add Panel button](images/add_panel.png ':size=150')
+
 On the new dashboard click the `Add Panel` button. Then click `Add Query`. Each panel can consist of multiple queries which will be shown in the visualization type you've chosen.
 
 Type `get_` in the first query field `A`. The autocomplete function will show you all the available metrics that start with whatever your input is. Choose `get_customers_v1_seconds_count` for now, this is the metric that shows us the number of requests to the GET Customers endpoint per second.
