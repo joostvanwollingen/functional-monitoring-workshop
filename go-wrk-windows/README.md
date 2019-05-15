@@ -2,7 +2,7 @@
 
 2) Run commando
 
-./go-wrk.exe -c 80 -d 5  https://trix-{?}-dev.cfapps.io/customers
+.\go-wrk.exe -c 80 -d 5  https://trix-?-dev.cfapps.io/customers
 
 
 
