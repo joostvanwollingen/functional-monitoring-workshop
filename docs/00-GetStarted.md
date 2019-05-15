@@ -32,6 +32,10 @@ To do requests to the system under test [Postman](https://www.getpostman.com/dow
 ### WRK
 [WRK](https://github.com/wg/wrk) is a HTTP benchmarking tool, which can be used to fire thousands of requests in a short amount of time at the SUT. That way we can generate more realistic metrics to create dashboards with.
 
+### WRK for windows
+
+Download at https://github.com/joostvanwollingen/functional-monitoring-workshop/tree/master/go-wrk-windows and follow the readme!
+
 #### Generate requests with WRK
 
 In order to use WRK you need to either install it [locally](https://github.com/wg/wrk/wiki/Installing-wrk-on-Windows-10) or use [Docker](https://github.com/William-Yeh/docker-wrk). 
